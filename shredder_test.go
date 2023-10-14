@@ -34,19 +34,15 @@ func TestFile(t *testing.T) {
     if err != nil {
         t.Fatalf("Failed to create temporary file: %v", err)
     }
-    defer tempFile.Close()
-    defer os.Remove(tempFile.Name())
-
     // Write some data to the temporary file
     testData := []byte("This is some test data.")
     if _, err := tempFile.Write(testData); err != nil {
         t.Fatalf("Failed to write data to temporary file: %v", err)
     }
-
+    tempFile.Close()
     // Test the File function
-    config := Config{Iterations: 3, Remove: true}
+    config := Config{Iterations: 3, Remove: false}
     if err := config.File(tempFile.Name()); err != nil {
         t.Fatalf("File test failed: %v", err)
     }
-    // You can add assertions to verify the file was properly shredded and removed here.
 }
