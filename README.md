@@ -1,13 +1,14 @@
 ## Installation
 
 ```bash
-go get gitlab.com/zeyad.y.g/shred
+go get github.com/OmarAtefThabet/shredder
+
 ```
 
 ```go
 import (
-	"fmt"
-	"os"
+    "fmt"
+    "os"
     "github.com/OmarAtefThabet/shredder"
 )
 
@@ -25,6 +26,11 @@ func main() {
         fmt.Println("File shredded")
     }
 }
+```
+
+```bash
+go run yourprogram.go /path/to/your/file
+
 ```
 
 ## Testing
